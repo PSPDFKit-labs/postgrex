@@ -33,6 +33,8 @@ defmodule Postgrex.Utils do
   def parse_version(version) do
     list =
       version
+      |> String.split(" ")
+      |> hd
       |> String.split(".")
       |> Enum.map(&elem(Integer.parse(&1), 0))
 
